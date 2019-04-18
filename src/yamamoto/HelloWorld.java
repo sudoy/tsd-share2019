@@ -1,4 +1,4 @@
-package tatsuya;
+package yamamoto;
 
 public class HelloWorld {
 
