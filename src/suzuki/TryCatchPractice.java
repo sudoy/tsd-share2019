@@ -7,7 +7,7 @@ public class TryCatchPractice {
 		String[] a1 = {"5", "23", "123", "89", "91", "23"};
 		String[] a2 = {"5", "23", "a", "89", "b", "c"};
 
-		int[] x = makeArray2(a2);
+		int[] x = makeArray3(a2);
 		for(int n : x) {
 			System.out.print(n + ",");
 		}
@@ -34,7 +34,7 @@ public class TryCatchPractice {
 				 b2 = Integer.parseInt(a[i]);
 				 b[i] = b2;
 			}catch(Throwable e){
-				b[i] = 0;
+
 			}
 		}
 		return b;
@@ -43,9 +43,14 @@ public class TryCatchPractice {
 	public static int[] makeArray3(String[] a) {
 
 		int[] b = new int[a.length];
-		for(int i = 0; i < a.length; i++) {
-			int b2 = Integer.parseInt(a[i]);
-			b[i] = b2;
+		int b2;
+		try {
+			for(int i = 0; i < a.length; i++) {
+				b2 = Integer.parseInt(a[i]);
+				b[i] = b2;
+			}
+		}catch(Throwable e) {
+
 		}
 		return b;
 	}
