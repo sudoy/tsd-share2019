@@ -7,7 +7,8 @@ public class TryCatchPractice {
 		String[] a2 = {"5", "23", "a", "89", "b", "c"};
 		int[] n1 = makeArray1(a1);
 		int[] n2 = makeArray2(a2);
-		for(int x:n2) {
+		int[] n3 = makeArray3(a2);
+		for(int x:n3) {
 			System.out.println(x);
 		}
 	}
@@ -28,6 +29,16 @@ public class TryCatchPractice {
 			}catch (NumberFormatException e) {
 			}
 
+		}
+		return ans;
+	}
+	public static int[] makeArray3(String[] a) {
+		int[] ans = new int[a.length];
+		try {
+			for(int i = 0; i < ans.length; i++) {
+				ans[i] = Integer.valueOf(a[i]);
+			}
+		}catch (NumberFormatException e) {
 		}
 		return ans;
 	}
