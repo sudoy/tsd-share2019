@@ -49,14 +49,12 @@ public class TryCatchPractice {
 
 	public static int[] makeArray4(String[] a) {
 		int[] ans = new int[a.length];
- 		for(int i = 0; i < a.length; i++) {
- 			try {
- 				ans[i] = Integer.valueOf(a[i]);
- 			}catch (NumberFormatException e) {
-				ans = new int[a.length];
-				break;
+		try {
+	 		for(int i = 0; i < a.length; i++) {
+	 			ans[i] = Integer.valueOf(a[i]);
 			}
-
+		}catch (NumberFormatException e) {
+			ans = new int[a.length];
 		}
  		return ans;
 	}
