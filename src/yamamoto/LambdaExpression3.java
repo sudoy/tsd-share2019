@@ -14,29 +14,29 @@ public class LambdaExpression3 {
 		Comparator<String> s2 = new Comparator<String>() {
 			@Override
 			public int compare(String o1, String o2) {
-				return o1.length() <= o2.length() ? -1 : 1;
+				return o1.length() - o2.length();
 			}
 		};
 		Arrays.sort(array, s2);
 		System.out.println(Arrays.toString(array));
 
 		Comparator<String> s3 = (String o1, String o2) ->{
-			return o1.length() <= o2.length() ? -1 : 1;
+			return o1.length() - o2.length();
 		};
 		Arrays.sort(array, s3);
 		System.out.println(Arrays.toString(array));
 
-		Comparator<String> s4 = (String o1, String o2) ->o1.length() <= o2.length() ? -1 : 1;
+		Comparator<String> s4 = (o1, o2) ->o1.length() - o2.length();
 		Arrays.sort(array, s4);
 		System.out.println(Arrays.toString(array));
-			}
+	}
 
 }
 
 class Arraysort implements Comparator<String>{
 	@Override
 	public int compare(String o1, String o2) {
-		return o1.length() <= o2.length() ? -1 : 1;
+		return o1.length() - o2.length();
 	}
 }
 
