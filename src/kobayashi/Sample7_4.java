@@ -15,7 +15,7 @@ public class Sample7_4 {
 	}
 		System.out.println("x - y:" + (x-y));
 	}
-	double doubleDivide(double x,double y) {
+	double doubleDivide(double x,double y) {//throws ArithmeticException
 		if(y == 0.0) {
 			throw new ArithmeticException(
 					"数字は0では割れません。");
