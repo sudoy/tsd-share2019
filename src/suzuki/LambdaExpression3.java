@@ -9,8 +9,8 @@ public class LambdaExpression3 {
 
 		String[] array = {"abc", "abcdefg", "a", "ab", "cdef"};
 
-//		Arrays.sort(array, new Sort2());
-//		System.out.println(Arrays.toString(array));
+		Arrays.sort(array, new Sort2());
+		System.out.println(Arrays.toString(array));
 
 		Comparator<String> c1 = new Comparator<String>() {
 			@Override
@@ -19,15 +19,15 @@ public class LambdaExpression3 {
 			}
 		};
 
-//		Arrays.sort(array, c1);
-//		System.out.println(Arrays.toString(array));
+		Arrays.sort(array, c1);
+		System.out.println(Arrays.toString(array));
 
 		Comparator<String> c2 = (String o1, String o2) ->{
 			return o1.length() > o2.length() ? 1 : -1;
 		};
 
-//		Arrays.sort(array, c2);
-//		System.out.println(Arrays.toString(array));
+		Arrays.sort(array, c2);
+		System.out.println(Arrays.toString(array));
 
 		Comparator<String> c3 = (o1, o2) -> o1.length() > o2.length() ? 1 : -1;
 
