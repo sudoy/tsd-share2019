@@ -18,6 +18,7 @@ public class LambdaExpression2 {
 		System.out.println(s2.exec(10, 5));
 		System.out.println(s3.exec(10, 5));
 //		System.out.println(new Summary() {@Override public int exec(int a, int b) {return a + b;}}.exec(11, 3));
+
 	}
 
 }
