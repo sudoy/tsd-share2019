@@ -13,7 +13,7 @@ public class LambdaExpression2 {
 		Summary s2 = (int a, int b) ->{
 			return a + b;
 		};
-		Summary s3 = (int a, int b) -> a + b;
+		Summary s3 = (a,b) -> a + b;
 		System.out.println(s1.exec(10, 5));
 		System.out.println(s2.exec(10, 5));
 		System.out.println(s3.exec(10, 5));
