@@ -1,19 +1,21 @@
 package yamamoto;
 
+import java.util.function.Predicate;
+
 public class LambdaExpression1 {
 
 	public static void main(String[] args) {
-		Predicate p1 = new PredicateClass();
-		Predicate p2 = new Predicate() {
+		Predicate<Integer> p1 = new PredicateClass();
+		Predicate<Integer> p2 = new Predicate<Integer>() {
 			@Override
-			public boolean test(int x) {
+			public boolean test(Integer x) {
 				return 0 < x;
 			}
 		};
-		Predicate p3 = (int s) ->{
+		Predicate<Integer> p3 = (Integer s) ->{
 			return 0 < s;
 		};
-		Predicate p4 = s -> 0 < s;
+		Predicate<Integer> p4 = s -> 0 < s;
 
 		System.out.println(p1.test(1));
 		System.out.println(p2.test(1));
@@ -23,14 +25,11 @@ public class LambdaExpression1 {
 
 }
 
-interface Predicate{
-	boolean test(int x) ;
-}
-
-class PredicateClass implements Predicate{
+class PredicateClass implements Predicate<Integer>{
 	@Override
-	public boolean test(int x) {
-		return 0 < x;
+	public boolean test(Integer t) {
+		return 0 < t;
 	}
+
 }
 
