@@ -1,26 +1,45 @@
 package yamamoto;
 
-public class Sample7_5 {
+//import java.io.EOFException;
+//import java.io.FileNotFoundException;
+//import java.io.IOException;
 
-	public static void main(String[] args) {
-		double x = 15.0;
-		double y = 0.0;
-		try {
-			Sample7_5 obj = new Sample7_5();
-			double z = obj.doubleDivide(x, y);
-		}catch (ArithmeticException ae) {
-			System.out.println("----発生した例外----");
-			System.out.println(ae);
-		}
-		System.out.println("x - y: " + (x - y));
-	}
-
-	double doubleDivide(double x,double y) {
-		if(y == 0.0) {
-			throw new ArithmeticException("数字は0では割れません。");
-		}else {
-			return x / y;
-		}
-	}
-
-}
+//public class Sample7_5 {
+//	public void someMethod()throws IOException{}
+//
+//}
+//
+//class Sample7_5_1 extends Sample7_5{
+//	public void someMethod()throws IOException{}
+//
+//}
+//
+//class Sample7_5_2 extends Sample7_5{
+//	public void someMethod() {}
+//
+//}
+//
+//class Sample7_5_3 extends Sample7_5{
+//	public void someMethod() throws EOFException,FileNotFoundException{}
+//
+//}
+//
+//class Sample7_5_4 extends Sample7_5{
+//	public void someMethod() throws ClassNotFoundException{}
+//
+//}
+//
+//class Sample7_5_5 extends Sample7_5{
+//	public void someMethod() throws Exception{}
+//
+//}
+//
+//class Sample7_5_6 extends Sample7_5{
+//	public void someMethod()throws IOException,ClassNotFoundException{}
+//
+//}
+//
+//class Sample7_5_7 extends Sample7_5{
+//	public void someMethod()throws RuntimeException{}
+//
+//}
