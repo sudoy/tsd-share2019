@@ -1,10 +1,12 @@
 package suzuki;
 
+import java.util.Arrays;
+
 public class TryCatchPractice {
 
 	public static void main(String[] args) {
 
-		String[] a1 = {"5", "23", "123", "89", "91", "23"};
+//		String[] a1 = {"5", "23", "123", "89", "91", "23"};
 		String[] a2 = {"5", "23", "a", "89", "b", "c"};
 
 		int[] x = makeArray4(a2);
@@ -63,9 +65,11 @@ public class TryCatchPractice {
 				b[i] = x;
 			}
 		}catch(RuntimeException e) {
-			for(int i = 0; i < a.length; i++) {
-				b[i] = 0;
-			}
+//			for(int i = 0; i < a.length; i++) {
+//				b[i] = 0;
+//			}
+			Arrays.fill(b, 0);
+
 		}
 		return b;
 	}
