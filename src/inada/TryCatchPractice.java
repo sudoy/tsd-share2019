@@ -6,7 +6,7 @@ public class TryCatchPractice {
 //		String[] a1 = {"5", "23", "123", "89", "91", "23"};
 		String[] a1 = {"5", "23", "a", "89", "b", "c"};
 
-		int[] array = makeArray2(a1);
+		int[] array = makeArray4(a1);
 
 
 		for(int i = 0; i < array.length; i++) {
@@ -49,6 +49,21 @@ public class TryCatchPractice {
 		return array;
 	 }
 
+	 public static int[] makeArray4(String[] a) {
+		 int[] array = new int[a.length];
+		 
+		 try {
+
+			for(int i = 0; i < a.length; i++) {
+				int x = Integer.parseInt(a[i]);
+				array[i] = x;
+
+			}
+		 }catch(NumberFormatException e) {
+
+		 }
+		return array;
+	 }
 
 }
 
