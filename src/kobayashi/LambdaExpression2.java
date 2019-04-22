@@ -22,8 +22,6 @@ public class LambdaExpression2 {
 		System.out.println(a2.exec(1,4));
 		System.out.println(a3.exec(6,8));
 
-
-
 	}
 }
 
