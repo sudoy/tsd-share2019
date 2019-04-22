@@ -22,7 +22,7 @@ public class LambdaExpression2 {
 		System.out.println(s3.exec(5, 10));
 
 
-		Summary s4 = (int a, int b)-> a + b;
+		Summary s4 = (a, b)-> a + b;
 		System.out.println(s4.exec(5, 10));
 	}
 }
