@@ -3,21 +3,31 @@ package sudo;
 public class HelloWorld {
 
 	public static void main(String[] args) {
-		String s = null;
-		s.equals("sss");
+		// new
+		// メソッド呼び出し
+//		Test t = new Test();
+//		t.method(); // -> 異常終了
 
-		Test t = new Test();
-		t.name = "hogehoge";
-		t.method();
+		int[] a = {1};
+		System.out.println(a.toString());
+
 	}
-
 }
 
-
 class Test{
-	String name;
+	void method () throws Exception{
+		Hogehoge h = new Hogehoge();
+		h.hoge(); // 呼び出し元 -> ArithmeticExceptionがスローされた
+		h.piyo(h);
+	}
+}
 
-	void method() {
-		System.out.println(name.equals("aaa"));
+class Hogehoge{
+	void hoge() throws Exception{
+		System.out.println(15 / 0); // 例外
+		System.out.println(15 - 0);
+	}
+	void piyo(Hogehoge h) {
+
 	}
 }
