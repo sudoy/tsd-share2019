@@ -1,5 +1,5 @@
 package fujinoki;
-import java.time.LocalDate;
+
 import java.time.Period;
 
 public class LocalDate {
@@ -12,7 +12,7 @@ public class LocalDate {
 		
 		System.out.println("date            :" + date);
 		
-		System.out.println(---------------------------);
+		System.out.println("---------------------------");
 		
 		LocalDate now = LocalDate.now();
 		System.out.println("今日の日付       :" + now);
@@ -20,8 +20,6 @@ public class LocalDate {
 		System.out.println("明日の日付       :" + tomorrow);
 		
 		Period p = now.until(tomorrow);
-		system.out.println(p.geｔDays())
+		system.out.println(p.getDays());
 	}
-	
-
 }
