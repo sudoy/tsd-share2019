@@ -2,7 +2,7 @@ package kobayashi;
 
 import java.util.function.Predicate;
 
-public class LamdaExpression1 {
+public class LambdaExpression1 {
 
 	public static void main(String[] args) {
 
@@ -21,28 +21,27 @@ public class LamdaExpression1 {
 		};
 		//ラムダ式(省略なし)
 		Predicate<Integer>p3 = (Integer t) ->{
-			if(t < 0) {
+			if(t > 0) {
 				return true;
 			}else {
 				return false;
 			}
 		};
-
+		//省略
 		Predicate<Integer> p4 = t -> 0 < t;
 
 
-		System.out.println(p2.test(1));
+		System.out.println(p1.test(10));
+		System.out.println(p1.test(-10));
+
+		System.out.println(p2.test(10));
 		System.out.println(p2.test(-10));
 
-		Predicate<Integer> a1 = (Integer x) ->{
-			if(x < 0) {
-				return true;
-			}else {
-			return false;
-			}
-		};
-		System.out.println(p1.test(1));
-		System.out.println(p1.test(-10));
+		System.out.println(p3.test(10));
+		System.out.println(p3.test(-10));
+
+		System.out.println(p4.test(10));
+		System.out.println(p4.test(-10));
 	}
 }
 class PredicateImpl implements Predicate<Integer>{
