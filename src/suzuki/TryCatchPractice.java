@@ -1,7 +1,5 @@
 package suzuki;
 
-import java.util.Arrays;
-
 public class TryCatchPractice {
 
 	public static void main(String[] args) {
@@ -68,7 +66,8 @@ public class TryCatchPractice {
 //			for(int i = 0; i < a.length; i++) {
 //				b[i] = 0;
 //			}
-			Arrays.fill(b, 0);
+//			Arrays.fill(b, 0);
+			b = new int[a.length];
 
 		}
 		return b;
