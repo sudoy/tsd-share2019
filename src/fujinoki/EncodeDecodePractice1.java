@@ -19,9 +19,10 @@ public class EncodeDecodePractice1 {
 		BufferedWriter out = null;
 
 
+
 		try {
 			outputFile = new File("C:\\output\\" + a);
-			outputFile.mkdir();
+
 
 
 			out = new BufferedWriter(new FileWriter(outputFile));
@@ -49,9 +50,5 @@ public class EncodeDecodePractice1 {
 
 	}
 
-	private static void createNewFile() {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
 
 }
