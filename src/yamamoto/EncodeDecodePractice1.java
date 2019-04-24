@@ -14,12 +14,14 @@ public class EncodeDecodePractice1 {
 		String name = scn.next();
 		System.out.print("保存する値：");
 		String data = scn.next();
-		
+
 		File outputfile = new File("C:\\output\\" +name);
 		BufferedWriter out = null;
+		System.out.println("...");
 		try {
 			out = new BufferedWriter(new FileWriter(outputfile));
 			out.write(data);
+			System.out.println("保存しました！");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -31,6 +33,8 @@ public class EncodeDecodePractice1 {
 				e.printStackTrace();
 			}
 		}
+
+
 		scn.close();
 	}
 }
