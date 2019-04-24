@@ -23,14 +23,14 @@ public class EncodeDecodePractice3 {
 			System.out.println("読み込み完了！");
 
 			String line = null;
-			try {
-				line = in.readLine();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+
+			line = in.readLine();
+
 			System.out.println(line);
 
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
 			try {
