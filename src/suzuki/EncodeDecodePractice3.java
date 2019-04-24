@@ -21,9 +21,13 @@ public class EncodeDecodePractice3 {
 		try {
 			in = new BufferedReader(new FileReader(file));
 
-			String line = in.readLine();
 			System.out.println("…\n読み込み完了！");
-			System.out.println("-------\n" + line + "\n-------");
+			System.out.println("-------");
+			String line;
+			while((line = in.readLine()) != null) {
+				System.out.println(line);
+			}
+			System.out.println("-------");
 
 		} catch (IOException e) {
 			e.printStackTrace();
