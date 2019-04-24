@@ -11,14 +11,17 @@ public class Sample8_2 {
 	}
 
 }
-class MyTopLevelS{
+
+class MyTopLevelS {
 	private static String top = "From top level class";
+
 	public static void gateToStatic() {
 		StaticNested s = new StaticNested();
 		s.accessStaticNested(top);
-		
+
 	}
-	static class StaticNested{
+
+	static class StaticNested {
 		public void accessStaticNested(String st) {
 			System.out.println(st);
 		}
