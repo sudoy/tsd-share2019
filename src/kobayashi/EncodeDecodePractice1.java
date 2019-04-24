@@ -1,4 +1,4 @@
-package inada;
+package kobayashi;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,34 +11,29 @@ public class EncodeDecodePractice1 {
 	public static void main(String[] args) {
 
 		Scanner scn = new Scanner(System.in);
-		System.out.print("ファイル名 : ");
-		String str1 = scn.next();
-		System.out.print("保存する値 : ");
-		String str2 = scn.next();
+		System.out.println("ファイル名 : ");
+		String a = scn.next();
+		System.out.println("保存する値 : ");
+		String b = scn.next();
 
-		File outputFile = new File("c:\\output\\" + str1);
-
+		File outputFile = new File("C:\\output\\" + a);
 		BufferedWriter out = null;
 
 		try {
 			out = new BufferedWriter(new FileWriter(outputFile));
-
-			out.write(str2);
-			out.newLine();
+			out.write(b);
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				if(out != null) {
+				if (out != null) {
 					out.close();
 				}
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("保存しました！");
 		scn.close();
 	}
 
