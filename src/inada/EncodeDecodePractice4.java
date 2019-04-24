@@ -17,7 +17,12 @@ public class EncodeDecodePractice4 {
 		File inputFile = new File("c:\\output\\", str1);
 
 		if(!inputFile.exists()) {	//存在しない場合
-			System.out.println(new File(inputFile, "は見つかりませんでした"));
+			try {
+				System.out.print(inputFile.getCanonicalPath());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("は見つかりませんでした");
 			System.exit(0);
 		}
 
