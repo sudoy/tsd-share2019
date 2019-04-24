@@ -17,7 +17,7 @@ public class EncodeDecodePractice1 {
 		String x = scn.next();
 		System.out.print("保存する値 : ");
 		String y = scn.next();
-		System.out.println("保存しました！");
+
 
 		File outputFile = new File("C:\\output\\" + x);
 		BufferedWriter out  = null;
@@ -26,6 +26,7 @@ public class EncodeDecodePractice1 {
 
 			out = new BufferedWriter(new FileWriter(outputFile));
 			out.write(y);
+			System.out.println("保存しました！");
 
 
 		} catch (FileNotFoundException e) {
