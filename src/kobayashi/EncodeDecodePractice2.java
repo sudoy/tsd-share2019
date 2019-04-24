@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class EncodeDecodePractice1 {
+public class EncodeDecodePractice2 {
 
 	public static void main(String[] args) {
 
@@ -16,11 +16,12 @@ public class EncodeDecodePractice1 {
 		System.out.println("保存する値 : ");
 		String b = scn.next();
 
-		File outputFile = new File("C:\\output\\" + a);
+		File outputFile = new File("C:\\output");
 		BufferedWriter out = null;
+		outputFile.mkdir();
 
 		try {
-			out = new BufferedWriter(new FileWriter(outputFile));
+			out = new BufferedWriter(new FileWriter(outputFile + "\\"+  a));
 			out.write(b);
 
 		} catch (IOException e) {
