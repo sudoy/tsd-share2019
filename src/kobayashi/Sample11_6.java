@@ -51,12 +51,5 @@ public class Sample11_6 {
 				e.printStackTrace();
 			}
 		}
-
-
-
-
-
-
 	}
-
 }
