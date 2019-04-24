@@ -22,7 +22,7 @@ public class IOPractice {
 			out = new BufferedWriter(new FileWriter(outputFile));
 
 			String line;
-			while((line = in.readLine()) != null) {
+			while ((line = in.readLine()) != null) {
 				out.write(line);
 				out.newLine();
 			}
@@ -31,9 +31,9 @@ public class IOPractice {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				if(in != null) {
+				if (in != null) {
 					in.close();
 				}
 
@@ -41,7 +41,7 @@ public class IOPractice {
 				e.printStackTrace();
 			}
 			try {
-				if(out != null) {
+				if (out != null) {
 					out.close();
 				}
 
