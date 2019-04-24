@@ -16,12 +16,12 @@ public class EncodeDecodePractice2 {
 		System.out.println("保存する値 : ");
 		String b = scn.next();
 
-		File outputFile = new File("C:\\output");
+		File outputFile = new File("C:\\output\\" + a);
 		BufferedWriter out = null;
 		outputFile.mkdir();
 
 		try {
-			out = new BufferedWriter(new FileWriter(outputFile + "\\"+  a));
+			out = new BufferedWriter(new FileWriter(outputFile));
 			out.write(b);
 
 		} catch (IOException e) {
