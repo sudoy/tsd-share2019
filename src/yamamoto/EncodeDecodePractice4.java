@@ -44,3 +44,4 @@ public class EncodeDecodePractice4 {
 		scn.close();
 	}
 }
+
