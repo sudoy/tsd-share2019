@@ -2,7 +2,6 @@ package fujinoki;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,18 +18,22 @@ public class EncodeDecodePractice1 {
 		File outputFile = null;
 		BufferedWriter out = null;
 
+
 		try {
 			outputFile = new File("C:\\output\\" + a);
+			outputFile.mkdir();
+
+
 			out = new BufferedWriter(new FileWriter(outputFile));
 
-
 			out.write(b);
+			System.out.println("...");
+			System.out.println("保存しました!");
 
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 
 		} catch (IOException e) {
 			e.printStackTrace();
+
 		} finally {
 			try {
 				if (out != null) {
@@ -40,9 +43,14 @@ public class EncodeDecodePractice1 {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			System.out.println("...");
-			System.out.println("保存しました!");
+			scn.close();
+
 		}
+
+	}
+
+	private static void createNewFile() {
+		// TODO 自動生成されたメソッド・スタブ
 
 	}
 
