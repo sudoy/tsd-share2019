@@ -35,6 +35,7 @@ public class EncodeDecodePractice2 {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("保存しました！");
 		scn.close();
 	}
 
