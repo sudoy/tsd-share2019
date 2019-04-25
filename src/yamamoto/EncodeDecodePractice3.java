@@ -15,11 +15,13 @@ public class EncodeDecodePractice3 {
 		String name = scn.next();
 
 
-		File inputfile = new File("C:\\output");
+		File input = new File("C:\\output");
+		File inputfile = new File(input,name);
+
 		BufferedReader in = null;
 		System.out.println("...");
 		try {
-			in = new BufferedReader(new FileReader(inputfile + "\\" + name));
+			in = new BufferedReader(new FileReader(inputfile));
 			System.out.println("読み込み完了");
 			System.out.println("----");
 			String line;

@@ -10,16 +10,17 @@ public class EncodeDecodePractice6 {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		System.out.println("CryptEncode（暗号化）");
+		System.out.println("CryptDecode（復号化）");
 		System.out.println("--------------------------");
 		System.out.print("ファイル名：");
 		String name = scn.next();
 
 
-		File inputfile = new File("C:\\output");
+		File input = new File("C:\\output");
+		File inputfile = new File(input,name);
 		FileInputStream in = null;
 		try {
-			in = new FileInputStream(inputfile + "\\" + name);
+			in = new FileInputStream(inputfile);
 			System.out.println("..........\nデータ：");
 
 			int line;
@@ -28,7 +29,7 @@ public class EncodeDecodePractice6 {
 				System.out.print(txt);
 			}
 		}catch (FileNotFoundException e) {
-			System.out.println(inputfile + "\\" + name + "は見つかりませんでした");
+			System.out.println(inputfile + "は見つかりませんでした");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
