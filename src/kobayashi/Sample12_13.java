@@ -7,10 +7,10 @@ public class Sample12_13 {
 	public static void main(String[] args) {
 
 		//wi++;//実行時エラー//nullに足し算をしていることになる
-		Integer wi2 =199;//Autoboxing
+		Integer wi2 =0;//Autoboxing
 		wi2++;//演算可能//unboxingでint、インクリメントした後にboxingでIntegerに
-		Integer wi3 = 200;
-		if (wi2 == wi3) {
+		Integer wi3 = 1;
+		if (wi2.equals(wi3)) {
 			System.out.println("Area :" + areaOfSquare(4.0));
 		}
 	}
