@@ -15,12 +15,13 @@ public class EncodeDecodePractice2 {
 		System.out.print("保存する値：");
 		String data = scn.next();
 
-		File outputfile = new File("C:\\output");
-		outputfile.mkdirs();
+		File output = new File("C:\\output");
+		File outputfile = new File(output,name);
+		output.mkdirs();
 		BufferedWriter out = null;
 		System.out.println("...");
 		try {
-			out = new BufferedWriter(new FileWriter(outputfile + "\\" + name));
+			out = new BufferedWriter(new FileWriter(outputfile));
 			out.write(data);
 			System.out.println("保存しました！");
 		} catch (IOException e) {
