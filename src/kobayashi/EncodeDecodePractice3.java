@@ -1,4 +1,4 @@
-package yamamoto;
+package kobayashi;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,41 +7,37 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class EncodeDecodePractice3 {
-
 	public static void main(String[] args) {
+
 		Scanner scn = new Scanner(System.in);
-		System.out.println("【ファイルの内容を出力するプログラム】");
-		System.out.print("ファイル名：");
-		String name = scn.next();
+		System.out.println("ファイル名 : ");
+		String a = scn.next();
 
-
-		File input = new File("C:\\output");
-		File inputfile = new File(input,name);
-
+		File inputFile = new File("C:\\output\\" + a);
 		BufferedReader in = null;
-		System.out.println("...");
+
 		try {
-			in = new BufferedReader(new FileReader(inputfile));
-			System.out.println("読み込み完了");
-			System.out.println("----");
+			System.out.println("読み込み完了！");
+			in = new BufferedReader(new FileReader(inputFile));
+
 			String line;
 			while((line = in.readLine()) != null) {
+				System.out.println("----");
 				System.out.println(line);
+				System.out.println("----");
 			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				if(in != null) {
-					System.out.println("----");
+				if (in != null) {
 					in.close();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-
-
 		scn.close();
 	}
 }

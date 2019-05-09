@@ -15,11 +15,11 @@ public class EncodeDecodePractice4 {
 		System.out.print("ファイル名：");
 		String name = scn.next();
 
-
-		File inputfile = new File("C:\\output");
+		File input = new File("C:\\output");
+		File inputfile = new File(input,name);
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader(inputfile + "\\" + name));
+			in = new BufferedReader(new FileReader(inputfile));
 			System.out.println("...");
 			System.out.println("読み込み完了");
 			System.out.println("----");
@@ -28,7 +28,7 @@ public class EncodeDecodePractice4 {
 				System.out.println(line);
 			}
 		}catch (FileNotFoundException e) {
-			System.out.println(inputfile + "\\" + name + "は見つかりませんでした");
+			System.out.println(inputfile + "は見つかりませんでした");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
