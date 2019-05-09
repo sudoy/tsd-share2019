@@ -27,8 +27,13 @@ public class EncodeDecodePractice5 {
 		try {
 			out = new FileOutputStream(file);
 
+			int s = 0;
 			for(int i = 0; i < line.length(); i++) {
-				int c = line.charAt(i) + 1;
+				s += line.charAt(i);
+			}
+			int p = s % line.length();
+			for(int i = 0; i < line.length(); i++) {
+				int c = line.charAt(i) + p;
 				out.write(c);
 			}
 
