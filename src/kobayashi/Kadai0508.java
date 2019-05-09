@@ -10,7 +10,6 @@ public class Kadai0508 {
 
 		System.out.println("整数(1~65535)を入力して下さい。");
 
-		ArrayList<Integer> array = new ArrayList<>();
 		int a = 0;
 
 		for (;;) {
@@ -20,7 +19,7 @@ public class Kadai0508 {
 
 				a = scn.nextInt();
 
-				if (a >= 1 && a <= 65535) {
+				if (1 <= a && a <= 65535) {
 					break;
 				} else {
 					System.out.println("不正な値です。");
@@ -30,12 +29,18 @@ public class Kadai0508 {
 				System.out.println("不正な値です。");
 			}
 		}
-		while (a >= 1) {
-			array.add(a % 2);
-			a = a / 2;
-		}
-		for (int i = array.size() - 1; i >= 0; i--) {
-			System.out.print(array.get(i));
-		}
+		conversion(a,2);
+		conversion(a,16);
 	}
+
+	public static void conversion(int x,int y) {
+		StringBuilder sb = new StringBuilder();
+			int x = num;
+		while (a != 0) {
+			x / num;
+		}
+
+		}
+	//for (int i = array.size() - 1; i >= 0; i--) {
+	//System.out.print(array.get(i));
 }
