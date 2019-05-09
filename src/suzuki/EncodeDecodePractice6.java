@@ -28,10 +28,16 @@ public class EncodeDecodePractice6 {
 
 			System.out.println("...........");
 			System.out.print("データ：");
+
 			String line;
 			while((line = in.readLine()) != null) {
+				int s = 0;
 				for(int i = 0; i < line.length(); i++) {
-					char c = (char)(line.charAt(i) - 1);
+					s += line.charAt(i);
+				}
+				int p = s % line.length();
+				for(int i = 0; i < line.length(); i++) {
+					char c = (char)(line.charAt(i) - p);
 					System.out.print(c);
 				}
 			}
