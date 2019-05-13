@@ -1,6 +1,5 @@
 package kobayashi;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,11 +7,8 @@ public class Kadai0509 {
 
 	public static void main(String[] args) {
 
-		ArrayList<Integer> array = new ArrayList<>();
 
-		//DateTimeFormatter f = DateTimeFormatter.ofPattern("Gy年M月d日");
-		//JapaneseDate d = JapaneseDate.of();
-		int year = 0;
+		int num = 0;
 
 		for (;;) {
 			try {
@@ -20,10 +16,9 @@ public class Kadai0509 {
 
 				Scanner scn = new Scanner(System.in);
 				System.out.print("8桁を入力 :");
-				year = scn.nextInt();
+				num = scn.nextInt();
 
-				array.add(year);
-				if (array.size() <= 4) {
+				if(9999999 < num && 100000000 > num ) {
 					break;
 				} else {
 					System.out.println("不正です");
@@ -33,14 +28,18 @@ public class Kadai0509 {
 				System.out.println("不正です。");
 			}
 		}
-		//JapaneseDate japaneseDate = JapaneseDate.of();
-		//System.out.println(f.format(d));
 
-		//String numstr = String.valueOf(a);
+		String numstr = Integer.toString(num);
 
-		if (year % 4 == 0) {
-			if (year % 100 == 0) {
-				if (year % 400 == 0) {
+		StringBuilder sb = new StringBuilder(numstr);
+		int year = Integer.valueOf(sb.substring(0,4));
+
+
+
+
+		if (num % 4 == 0) {
+			if (num % 100 == 0) {
+				if (num % 400 == 0) {
 					System.out.println("うるう年です");
 				}
 			}else{
