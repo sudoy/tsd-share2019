@@ -14,7 +14,6 @@ public class Kadai0508 {
 		for (;;) {
 			try {
 				System.out.print("整数を入力 :");
-
 				a = scn.nextInt();
 
 				if (1 <= a && a <= 65535) {
@@ -24,6 +23,7 @@ public class Kadai0508 {
 				}
 			} catch (InputMismatchException ie) {
 				System.out.println("不正な値です。");
+				scn.next();
 			}
 		}
 		scn.close();
@@ -62,6 +62,6 @@ public class Kadai0508 {
 			sb.append(rem);
 			num /= bnum;
 		}
-		System.out.println("10進数の値 " +  input  + " は " + bnum  + " 進数の " + sb.reverse() + " です。 ");
+		System.out.println("10進数の値 " + input +" は " + bnum + " 進数の " + sb.reverse() + " です。 ");
 	}
 }
