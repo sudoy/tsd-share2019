@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Memo0509 {
+public class Kadai0509_2 {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
