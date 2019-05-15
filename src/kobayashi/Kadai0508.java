@@ -24,6 +24,7 @@ public class Kadai0508 {
 				}
 			} catch (InputMismatchException ie) {
 				System.out.println("不正な値です。");
+				scn.next();
 			}
 		}
 		scn.close();
