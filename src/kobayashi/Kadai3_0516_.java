@@ -7,22 +7,22 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
-public class Kadai0516 {
+class Kadai3 {
 
-	public static void main(String[] args) {
+	File inputFile = new File("C:\\kadai\\DATA\\DATA\\");//引数に渡す値
 
-		File inputFile = new File("C:\\kadai\\DATA\\DATA\\");//引数に渡す値
+	File outputFileA = new File("C:\\kadai\\DATA\\DATA\\DATA_A_TOTAL.csv");
+	File outputFileB = new File("C:\\kadai\\DATA\\DATA\\DATA_B_TOTAL.csv");
 
-		File outputFileA = new File("C:\\kadai\\DATA\\DATA\\DATA_A_TOTAL.csv");
-		File outputFileB = new File("C:\\kadai\\DATA\\DATA\\DATA_B_TOTAL.csv");
+	BufferedReader in = null;
+	BufferedWriter out = null;
 
-		BufferedReader in = null;
-		BufferedWriter out = null;
+	File[] list = inputFile.listFiles();
 
-		File[] list = inputFile.listFiles();
+	public void existcheck() {//TOTALファイルの存在チェック、作成
 
-		//TOTALファイルの存在チェック、作成
 		try {
 			if (!outputFileA.exists() && outputFileB.exists()) {
 				outputFileA.createNewFile();
@@ -31,11 +31,11 @@ public class Kadai0516 {
 		} catch (IOException e) {
 			System.out.println("エラーが発生しました。");
 		}
+	}
 
-		//読み込みと書き込み
+	public void ioA() {//読み込みと書き込みA
 
-		//DATA_A
-		if (list != null) {
+		if (list != null) {//DATA_A
 
 			for (int i = 0; i < 100; i++) {
 				try {
@@ -69,12 +69,14 @@ public class Kadai0516 {
 					}
 				}
 			}
+			System.out.println("A完了");
 		} else {
 			System.out.println("null");
 		}
+	}
 
-		///DATA_B
-		if (list != null) {
+	public void ioB() {//読み込みと書き込みB
+		if (list != null) {///DATA_B
 
 			for (int j = 100; j < 110; j++) {
 				try {
@@ -108,10 +110,44 @@ public class Kadai0516 {
 					}
 				}
 			}
-
+			System.out.println("B完了");
 		} else {
 			System.out.println("null");
 		}
 	}
+}
 
+class Kadai4 extends Kadai3 {
+
+}
+
+interface Comparator {
+	void comp();
+}
+
+class CompImpl implements Comparator {
+
+	@Override
+	public void comp() {
+		Comparator<File> c = new Comparator<File>();
+
+
+		public int compare(File o1, File o2) {
+
+			Arrays.sort(list,);
+		}
+
+	}
+}
+
+public class Kadai3_0516_ {//メイン
+
+	public static void main(String[] args) {
+
+		Kadai3 k3 = new Kadai3();
+
+		k3.existcheck();
+		k3.ioA();
+		k3.ioB();
+	}
 }
