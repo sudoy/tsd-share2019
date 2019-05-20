@@ -34,7 +34,7 @@ public class Kadai02 {
 		System.out.println
 		(year.getYear()+ "年" + year.getMonthValue()+ "月" + year.getDayOfMonth() + "日" );
 
-		JapaneseDate jpDate = JapaneseDate.of(year.getYear(),year.getMonthValue(),year.getDayOfMonth());
+		JapaneseDate jpDate = JapaneseDate.of(year.getYear(), year.getMonthValue(),year.getDayOfMonth());
 //		和暦にするためJapaneseDateを使用
 
 //		System.out.println(jpDate);
