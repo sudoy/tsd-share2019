@@ -53,7 +53,7 @@ class Kadai3 {
 		};
 		return filter;
 
-		//File[] listA = .listFiles(filter); //到達不能コードと出る
+		//File[] listA = .listFiles(filter); //ABにフィルタした到達不能コードと出る
 
 	}
 	public void getList() {
