@@ -29,9 +29,13 @@ public class Kadai03 {
 }
 
 /**
- * File配列のPathのファイルを順次読み込み、１つのファイルに出力します。
+ * File配列のファイルを順次読み込み、１つのファイルに出力します。
  */
 class InputOutput {
+	/**
+	 * @param list ファイルのパスまで保持した
+	 * @param filename 使用するファイルセットの名前
+	 */
 	public void copyData(File[] list, String filename) {
 		System.out.println(filename + "をまとめます。");
 		if (list.length == 0) {
@@ -74,13 +78,16 @@ class InputOutput {
 }
 
 /**
- * 初期化時に正規表現を入れることでFile配列に入れるPathの条件を決める。
+ * 初期化時に正規表現を入れることでFile配列に入れるパスの条件を決める。
  */
 class FilesFilter implements FilenameFilter {
 	private String str = "";
 
+	/**
+	 * @param str 正規表現
+	 */
 	public FilesFilter(String str) {
-		this.str = str; // 初期化時に正規表現の代入
+		this.str = str;
 	}
 
 	@Override
