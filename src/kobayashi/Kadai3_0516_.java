@@ -6,82 +6,66 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
-import java.util.Arrays;
 
 class Kadai3 {
 
-	File inputFile = new File("C:\\kadai\\DATA\\DATA\\");//引数に渡す値
+	 String dir = "C:\\DATA\\DATA\\";
+	 String fileA = "DATA_A_TOTAL.csv";
+	 String fileB = "DATA_B_TOTAL.csv";
 
-	File outputFileA = new File("C:\\kadai\\DATA\\DATA\\DATA_A_TOTAL.csv");
-	File outputFileB = new File("C:\\kadai\\DATA\\DATA\\DATA_B_TOTAL.csv");
+	 File fA;
+	 File fB;
+
+	 File[] listA;//一覧を取得する必要がある
+	 File[] listB;
+	File path = new File ("C:\\DATA\\DATA\\");
+
 
 	BufferedReader in = null;
 	BufferedWriter out = null;
 
-	File[] list = inputFile.listFiles();
-
 	public void existcheck() {//TOTALファイルの存在チェック、作成
 
 		try {
-			if (!outputFileA.exists() && outputFileB.exists()) {
-				outputFileA.createNewFile();
-				outputFileB.createNewFile();
+			if (!fA.exists() && fB.exists()) {
+				fA.createNewFile();
+				fB.createNewFile();
 			}
 		} catch (IOException e) {
 			System.out.println("エラーが発生しました。");
 		}
 	}
 
-	public void ioA() {//読み込みと書き込みA
+	public FilenameFilter filter() {//フィルタ
 
-		if (list != null) {//DATA_A
+		FilenameFilter filter = new FilenameFilter() {
 
-			for (int i = 0; i < 100; i++) {
-				try {
-					in = new BufferedReader(new FileReader(list[i]));
-					out = new BufferedWriter(new FileWriter(outputFileA, true));
-
-					String line;
-					while ((line = in.readLine()) != null) {
-						out.write(line);
-						out.newLine();
-					}
-
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} finally {
-					try {
-						if (in != null) {
-							in.close();
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					try {
-						if (out != null) {
-							out.close();
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+			@Override
+			public boolean accept(File inputFile, String name) {
+				if (name.indexOf("DATA_A") != -1) {
+					return true;
+				} else {
+					return false;
 				}
 			}
-			System.out.println("A完了");
-		} else {
-			System.out.println("null");
-		}
+		};
+		return filter;
+
+		//File[] list = new File(dir).listFiles(filter); //到達不能コードと出てしまう
+
 	}
 
-	public void ioB() {//読み込みと書き込みB
-		if (list != null) {///DATA_B
+	public void inputoutput(File[] list) {//読み込みと書き込み
 
-			for (int j = 100; j < 110; j++) {
+
+		File outputFile = new File(list.toString());
+
+			for (int i = 0; i < list.length; i++) {
 				try {
-					in = new BufferedReader(new FileReader(list[j]));
-					out = new BufferedWriter(new FileWriter(outputFileB, true));
+					in = new BufferedReader(new FileReader(list[i]));
+					out = new BufferedWriter(new FileWriter(outputFile,true));
 
 					String line;
 					while ((line = in.readLine()) != null) {
@@ -110,10 +94,7 @@ class Kadai3 {
 					}
 				}
 			}
-			System.out.println("B完了");
-		} else {
-			System.out.println("null");
-		}
+			System.out.println("完了");
 	}
 }
 
@@ -125,20 +106,18 @@ interface Comparator {
 	void comp();
 }
 
-class CompImpl implements Comparator {
+/*class CompImpl implements Comparator { インターフェース
 
 	@Override
 	public void comp() {
-		Comparator<File> c = new Comparator<File>();
-
-
-		public int compare(File o1, File o2) {
-
-			Arrays.sort(list,);
+		Arrays.sort(listB, new Comparator<File>() {
+			public int compare(File1 fileB,  File CompImpl) {
+				return File.getOutputFileB() - File.();
+			}
+		});
 		}
 
-	}
-}
+}*/
 
 public class Kadai3_0516_ {//メイン
 
@@ -147,7 +126,6 @@ public class Kadai3_0516_ {//メイン
 		Kadai3 k3 = new Kadai3();
 
 		k3.existcheck();
-		k3.ioA();
-		k3.ioB();
+		k3.inputoutput();
 	}
 }
