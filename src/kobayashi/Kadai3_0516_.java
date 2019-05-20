@@ -18,9 +18,9 @@ class Kadai3 {
 	 File fA;
 	 File fB;
 
-	 File[] listA;//一覧を取得する必要がある
+	 File[] listA;//一覧を取得
 	 File[] listB;
-	File path = new File ("C:\\DATA\\DATA\\");
+	 File path;//共通
 
 
 	BufferedReader in = null;
@@ -53,12 +53,14 @@ class Kadai3 {
 		};
 		return filter;
 
-		//File[] list = new File(dir).listFiles(filter); //到達不能コードと出てしまう
+		//File[] listA = .listFiles(filter); //到達不能コードと出る
+
+	}
+	public void getList() {
 
 	}
 
 	public void inputoutput(File[] list) {//読み込みと書き込み
-
 
 		File outputFile = new File(list.toString());
 
@@ -106,7 +108,7 @@ interface Comparator {
 	void comp();
 }
 
-/*class CompImpl implements Comparator { インターフェース
+/*class CompImpl implements Comparator <File>{ インターフェース
 
 	@Override
 	public void comp() {
