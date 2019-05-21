@@ -13,7 +13,7 @@ class Kadai3 {
 
 	File fileA = new File("DATA_A_TOTAL.csv");
 	File fileB = new File("DATA_B_TOTAL.csv");
-	File path;
+	File allfile;//C:\DATA\DATA
 	String filenameA = "DATA_A_";
 	String filenameB = "DATA_B_";
 
@@ -23,15 +23,10 @@ class Kadai3 {
 	BufferedReader in = null;
 	BufferedWriter out = null;
 
-	public void existcheck() {//TOTALファイルの存在チェック、作成
+	public void existcheck() throws NullPointerException {//指定したフォルダの存在チェック
 
-		try {
-			if (!fileA.exists() && fileB.exists()) {
-				fileA.createNewFile();
-				fileB.createNewFile();
-			}
-		} catch (IOException e) {
-			System.out.println("エラーが発生しました。");
+		if (!allfile.exists()) {
+			throw new NullPointerException();
 		}
 	}
 
@@ -54,8 +49,8 @@ class Kadai3 {
 
 	public void getList() {//ABの一覧を取得
 
-		listA = path.listFiles(filter(filenameA));
-		listB = path.listFiles(filter(filenameB));
+		listA = allfile.listFiles(filter(filenameA));
+		listB = allfile.listFiles(filter(filenameB));
 
 	}
 
@@ -64,7 +59,7 @@ class Kadai3 {
 		for (int i = 0; i < list.length; i++) {
 			try {
 				in = new BufferedReader(new FileReader(list[i]));
-				out = new BufferedWriter(new FileWriter(path.getPath() + file.getPath(), true));
+				out = new BufferedWriter(new FileWriter(allfile.getPath() + file.getPath(), true));
 
 				String line;
 				while ((line = in.readLine()) != null) {
@@ -124,14 +119,17 @@ public class Kadai3_0516_ {//メイン
 
 		Kadai3 k3 = new Kadai3();
 
-		k3.path = new File(args[0]);
+		try {
+			k3.allfile = new File(args[0]);
+			k3.existcheck();
+			k3.filter(k3.filenameA);
+			k3.filter(k3.filenameB);
+			k3.getList();
+			k3.inputoutput(k3.listA, k3.fileA);
+			k3.inputoutput(k3.listB, k3.fileB);
+		} catch (NullPointerException ne) {
+			System.out.println("指定されたフォルダは存在しません。");
+		}
 
-		k3.existcheck();
-		k3.filter(k3.filenameA);
-		k3.filter(k3.filenameB);
-		k3.getList();
-
-		k3.inputoutput(k3.listA, k3.fileA);
-		k3.inputoutput(k3.listB, k3.fileB);
 	}
 }
