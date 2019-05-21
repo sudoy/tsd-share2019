@@ -11,17 +11,14 @@ import java.io.IOException;
 
 class Kadai3 {
 
-	 String dir = "C:\\DATA\\DATA\\";
-	 String fileA = "DATA_A_TOTAL.csv";
-	 String fileB = "DATA_B_TOTAL.csv";
+	File fileA = new File("DATA_A_TOTAL.csv");
+	File fileB = new File("DATA_B_TOTAL.csv");
+	File path;
+	String filenameA = "DATA_A_";
+	String filenameB = "DATA_B_";
 
-	 File fA;
-	 File fB;
-
-	 File[] listA;//一覧を取得
-	 File[] listB;
-	 File path;//共通
-
+	File[] listA;//一覧を取得
+	File[] listB;
 
 	BufferedReader in = null;
 	BufferedWriter out = null;
@@ -29,22 +26,22 @@ class Kadai3 {
 	public void existcheck() {//TOTALファイルの存在チェック、作成
 
 		try {
-			if (!fA.exists() && fB.exists()) {
-				fA.createNewFile();
-				fB.createNewFile();
+			if (!fileA.exists() && fileB.exists()) {
+				fileA.createNewFile();
+				fileB.createNewFile();
 			}
 		} catch (IOException e) {
 			System.out.println("エラーが発生しました。");
 		}
 	}
 
-	public FilenameFilter filter() {//フィルタ
+	public FilenameFilter filter(String filename) {//フィルタ
 
 		FilenameFilter filter = new FilenameFilter() {
 
 			@Override
 			public boolean accept(File inputFile, String name) {
-				if (name.indexOf("DATA_A") != -1) {
+				if (name.indexOf(filename) != -1) {
 					return true;
 				} else {
 					return false;
@@ -53,50 +50,50 @@ class Kadai3 {
 		};
 		return filter;
 
-		//File[] listA = .listFiles(filter); //ABにフィルタした到達不能コードと出る
-
-	}
-	public void getList() {
-
 	}
 
-	public void inputoutput(File[] list) {//読み込みと書き込み
+	public void getList() {//ABの一覧を取得
 
-		File outputFile = new File(list.toString());
+		listA = path.listFiles(filter(filenameA));
+		listB = path.listFiles(filter(filenameB));
 
-			for (int i = 0; i < list.length; i++) {
+	}
+
+	public void inputoutput(File[] list, File file) {//読み込みと書き込み
+
+		for (int i = 0; i < list.length; i++) {
+			try {
+				in = new BufferedReader(new FileReader(list[i]));
+				out = new BufferedWriter(new FileWriter(path.getPath() + file.getPath(), true));
+
+				String line;
+				while ((line = in.readLine()) != null) {
+					out.write(line);
+					out.newLine();
+				}
+
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
 				try {
-					in = new BufferedReader(new FileReader(list[i]));
-					out = new BufferedWriter(new FileWriter(outputFile,true));
-
-					String line;
-					while ((line = in.readLine()) != null) {
-						out.write(line);
-						out.newLine();
+					if (in != null) {
+						in.close();
 					}
-
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
 				} catch (IOException e) {
 					e.printStackTrace();
-				} finally {
-					try {
-						if (in != null) {
-							in.close();
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
+				}
+				try {
+					if (out != null) {
+						out.close();
 					}
-					try {
-						if (out != null) {
-							out.close();
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			}
-			System.out.println("完了");
+		}
+		System.out.println("完了");
 	}
 }
 
@@ -127,7 +124,14 @@ public class Kadai3_0516_ {//メイン
 
 		Kadai3 k3 = new Kadai3();
 
+		k3.path = new File(args[0]);
+
 		k3.existcheck();
-		k3.inputoutput();
+		k3.filter(k3.filenameA);
+		k3.filter(k3.filenameB);
+		k3.getList();
+
+		k3.inputoutput(k3.listA, k3.fileA);
+		k3.inputoutput(k3.listB, k3.fileB);
 	}
 }
