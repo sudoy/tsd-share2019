@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 
 class Kadai3 {
 
@@ -92,44 +94,38 @@ class Kadai3 {
 	}
 }
 
-class Kadai4 extends Kadai3 {
-
-}
-
-interface Comparator {
-	void comp();
-}
-
-/*class CompImpl implements Comparator <File>{ インターフェース
+class Comp implements Comparator<File> {
 
 	@Override
-	public void comp() {
-		Arrays.sort(listB, new Comparator<File>() {
-			public int compare(File1 fileB,  File CompImpl) {
-				return File.getOutputFileB() - File.();
-			}
-		});
-		}
+	public int compare(File o1, File o2) {
 
-}*/
+		return (o2).compareTo(o1);
+	}
+
+}
 
 public class Kadai3_0516_ {//メイン
 
 	public static void main(String[] args) {
 
 		Kadai3 k3 = new Kadai3();
+		Comp c = new Comp();
 
 		try {
+
 			k3.allfile = new File(args[0]);
 			k3.existcheck();
 			k3.filter(k3.filenameA);
 			k3.filter(k3.filenameB);
 			k3.getList();
 			k3.inputoutput(k3.listA, k3.fileA);
+			Arrays.sort(k3.listB,c);//B配列 逆
 			k3.inputoutput(k3.listB, k3.fileB);
+
 		} catch (NullPointerException ne) {
 			System.out.println("指定されたフォルダは存在しません。");
 		}
 
 	}
 }
+
