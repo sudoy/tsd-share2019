@@ -114,6 +114,7 @@ public class Kadai3_0516_ {//メイン
 		try {
 
 			k3.allfile = new File(args[0]);
+
 			k3.existcheck();
 			k3.filter(k3.filenameA);
 			k3.filter(k3.filenameB);
