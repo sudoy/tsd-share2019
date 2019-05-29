@@ -20,13 +20,11 @@ public class kadai0529 {
 				String m = scn.next();
 
 				if (y.length() == 4) {
-					if (m.matches("[0-12]") ){
-						break;
-					} else {
-						System.out.println("入力内容が不正です。もう一度入力してください。");
-					}
+//					&& m.matches("[0-12]") ) {
+//				}
+					break;
 				} else {
-					System.out.println("入力内容が不正です。もう一度入力してください。");
+						System.out.println("入力内容が不正です。もう一度入力してください。");
 				}
 			} catch (InputMismatchException ie) {
 				System.out.println("入力内容が不正です。もう一度入力してください。");
