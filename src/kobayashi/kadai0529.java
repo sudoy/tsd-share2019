@@ -7,8 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,12 +16,11 @@ public class kadai0529 {
 
 	public static void main(String[] args) {
 
-		Calendar cal = Calendar.getInstance();
-
 		System.out.print("カレンダーを出力する年月を入力してください。");//年月の入力
 		Scanner scn = new Scanner(System.in);
 		String y;
 		int m = 0;
+		int linecount = 1;
 
 		for (;;) {
 			try {
@@ -45,17 +44,17 @@ public class kadai0529 {
 
 		System.out.println("ファイルに出力しました。");
 
-		LocalDate date = LocalDate.of(Integer.valueOf(y), m,1);//今月1日(変数として使うと便利)
-		date.getDayOfWeek();
-		date.plusMonths(1).minusDays(1);//今月の最終日
+		LocalDate first = LocalDate.of(Integer.valueOf(y), m,1);//入力した月の初日(変数として使う)
+		first.getDayOfWeek();//1日の曜日
+
+		int last = first.plusMonths(1).minusDays(1).getDayOfMonth();//入力した月の最終日//数字に変換
 
 
 		File inputFile = new File("C:\\HTMLCSS課題\\kadai0529.html");
-		File outputFile = new File("C:\\HTMLCSS課題\\kadai0529.html");
+		File outputFile = new File("C:\\HTMLCSS練習\\2_kadai0529.html");
 
 		BufferedReader in = null;
 		BufferedWriter out = null;
-
 
 		try {
 			in = new BufferedReader(new FileReader(inputFile));
@@ -63,9 +62,72 @@ public class kadai0529 {
 
 			String line;
 			while((line = in.readLine()) != null){
-				out.write(line);
+
+
+				if(linecount == 10) {
+					out.write("<td align=\"center\">" +first.getYear() +"年</td>");
+				}else if(linecount == 13 ) {
+					out.write( "<td align=\"center\">" +first.getMonthValue() + "月</td>");
+				}else if(linecount == 27){
+
+					String date = first
+
+					switch() {
+					case "sun":
+						out.write("<td><font color=\"red\">1</font></td>");
+					case "mon":
+						out.write("<td>" + 1 + "</td>");
+					case "tue":
+						out.write("<td>" + 1 + "</td>");
+					case "wed":
+						out.write("<td>" + 1 + "</td>");
+					case "thu":
+						out.write("<td>" + 1 + "</td>");
+					case "fri":
+						out.write("<td>" + 1 + "</td>");
+					case "sat":
+						out.write("<td><font color=\"blue\">14</font></td>");
+					}
+
+					out.write("<tr>");
+					for(int i = 1 ; i <= 7; i++) {
+						out.write("<td>" + i + "</td>");
+						}
+					out.write("</tr>");
+
+					out.write("<tr>");
+					for(int i = 8 ; i <= 14; i++) {
+						out.write("<td>" + i + "</td>");
+					}
+					out.write("</tr>");
+
+					out.write("<tr>");
+					for(int i = 15 ; i <= 21; i++) {
+						out.write("<td>" + i + "</td>");
+					}
+					out.write("</tr>");
+
+					out.write("<tr>");
+					for(int i = 22 ; i <= 28; i++) {
+						out.write("<td>" + i + "</td>");
+					}
+					out.write("</tr>");
+
+					out.write("<tr>");
+					for(int i = 29 ; i <= last; i++) {
+						out.write("<td>" + i + "</td>");
+					}
+					out.write("</tr>");
+
+
+				}else if(linecount >= 28 && linecount <= 71){//スキップするところ
+
+
+				}else {
+					out.write(line);
+				}
 				out.newLine();
-				//out.println(line); //上2行の代わり
+				linecount++;
 			}
 
 		} catch (FileNotFoundException e) {
@@ -90,6 +152,4 @@ public class kadai0529 {
 			}
 		}
 	}
-
-
 }
