@@ -44,8 +44,8 @@ public class kadai0529 {
 
 		System.out.println("ファイルに出力しました。");
 
-		LocalDate first = LocalDate.of(Integer.valueOf(y), m,1);//入力した月の初日(変数として使う)
-		first.getDayOfWeek();//1日の曜日
+		LocalDate first = LocalDate.of(Integer.valueOf(y), m,1);//入力した月の初日
+		DayOfWeek fd = first.getDayOfWeek();//1日の曜日
 
 		int last = first.plusMonths(1).minusDays(1).getDayOfMonth();//入力した月の最終日//数字に変換
 
@@ -70,40 +70,60 @@ public class kadai0529 {
 					out.write( "<td align=\"center\">" +first.getMonthValue() + "月</td>");
 				}else if(linecount == 27){
 
-					String date = first
-
-					switch() {
-					case "sun":
+				switch(fd) {//1日の曜日を判断する
+					case SUNDAY:
 						out.write("<td><font color=\"red\">1</font></td>");
-					case "mon":
+					case MONDAY:
+						out.write("<td>" + "&nbsp" + "</td>");
 						out.write("<td>" + 1 + "</td>");
-					case "tue":
+					case TUESDAY:
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
 						out.write("<td>" + 1 + "</td>");
-					case "wed":
+					case WEDNESDAY:
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
 						out.write("<td>" + 1 + "</td>");
-					case "thu":
+					case THURSDAY:
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
 						out.write("<td>" + 1 + "</td>");
-					case "fri":
+					case FRIDAY:
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
 						out.write("<td>" + 1 + "</td>");
-					case "sat":
-						out.write("<td><font color=\"blue\">14</font></td>");
+					case SATURDAY:
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td>" + "&nbsp" + "</td>");
+						out.write("<td><font color=\"blue\">1</font></td>");
 					}
 
+
 					out.write("<tr>");
-					for(int i = 1 ; i <= 7; i++) {
+					for(int i= 1 ; i <= 7 ; i++) {
 						out.write("<td>" + i + "</td>");
 						}
 					out.write("</tr>");
 
 					out.write("<tr>");
 					for(int i = 8 ; i <= 14; i++) {
-						out.write("<td>" + i + "</td>");
+						out.write("<td>" +  i + "</td>");
 					}
 					out.write("</tr>");
 
 					out.write("<tr>");
 					for(int i = 15 ; i <= 21; i++) {
-						out.write("<td>" + i + "</td>");
+						out.write("<td>" +  i + "</td>");
 					}
 					out.write("</tr>");
 
@@ -115,7 +135,7 @@ public class kadai0529 {
 
 					out.write("<tr>");
 					for(int i = 29 ; i <= last; i++) {
-						out.write("<td>" + i + "</td>");
+						out.write("<td>" +  i + "</td>");
 					}
 					out.write("</tr>");
 
