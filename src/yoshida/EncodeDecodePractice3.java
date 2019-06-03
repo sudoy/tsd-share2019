@@ -16,8 +16,6 @@ public class EncodeDecodePractice3 {
 		System.out.print("ファイル名 : ");
 		String x = scn.next();
 
-
-
 		File inputFile = new File("C:\\output\\" + x);
 		BufferedReader in  = null;
 
@@ -29,7 +27,6 @@ public class EncodeDecodePractice3 {
 			System.out.println("------------");
 			System.out.println(in.readLine());
 			System.out.println("------------");
-
 
 
 		} catch (FileNotFoundException e) {
