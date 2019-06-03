@@ -7,8 +7,9 @@ public class Practice1 {
 
 		LocalDate now = LocalDate.now();
 		LocalDate first = now.withDayOfMonth(1);
-		LocalDate plusmonth = first.plusMonths(1);
-		LocalDate finish = plusmonth.minusDays(1);
+//		LocalDate plusmonth = first.plusMonths(1);
+//		LocalDate finish = plusmonth.minusDays(1);
+		LocalDate finish = first.plusMonths(1).minusDays(1);
 		Period p = first.until(finish);
 
 		for(int x = 0 ; x <= p.getDays() ; x++) {

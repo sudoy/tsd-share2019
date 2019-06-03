@@ -22,7 +22,7 @@ public class LambdaExpression1 {
 		System.out.println(pre1.test(10));
 		System.out.println(pre1.test(-10));
 
-		Predicate <Integer> pre2 = (Integer x) -> {
+		Predicate<Integer> pre2 = (Integer x) -> {
 			if(0 > x) {
 				return false;
 			}else {
@@ -33,7 +33,7 @@ public class LambdaExpression1 {
 		System.out.println(pre2.test(10));
 		System.out.println(pre2.test(-10));
 
-		Predicate <Integer> pre3 = y -> {
+		Predicate<Integer> pre3 = y -> {
 			if(0 > y) {
 				return false ;
 			}else {

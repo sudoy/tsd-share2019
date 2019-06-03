@@ -9,30 +9,21 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 
 public class Kadai03 {
-	public static void main(String[] args) {
-		if (args.length == 0) { // 実行時引数が存在するか
+	public boolean checkPath(String[] path) {
+		if (path == null || path.length == 0) { // 実行時引数が存在するか
 			System.out.println("実行時引数にパスを入力してください。");
-			return;
+			return false;
 		}
-		File input = new File(args[0]);
+		File input = new File(path[0]);
 		if (input.exists() == false) { // 入力されたフォルダが存在しているか
 			System.out.println("実行時引数に正しいパスを入力してください。");
-			return; // 終了
+			return false; // 終了
 		}
-		File[] listA = input.listFiles(new FilesFilter("\\DATA_A_([0-9]){8}\\.csv$")); // DATA_Aファイルのリストの作成
-		File[] listB = input.listFiles(new FilesFilter("\\DATA_B_([0-9]){8}\\.csv$")); // DATA_Bファイルのリストの作成
-		InputOutput x = new InputOutput();
-		x.copyData(listA, "DATA_A");
-		x.copyData(listB, "DATA_B");
-		System.out.println("すべての処理が終了しました。");
+		return true;
 	}
-}
 
-/**
- * File配列のファイルを順次読み込み、１つのファイルに出力します。
- */
-class InputOutput {
 	/**
+	 * File配列のファイルを順次読み込み、１つのファイルに出力します。
 	 * @param list ファイルのパスまで保持した
 	 * @param filename 使用するファイルセットの名前
 	 */

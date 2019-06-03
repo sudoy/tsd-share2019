@@ -23,6 +23,8 @@ public class Kadai01 {
 			}else {
 				System.out.println("不正な値です。");
 			}
+
+			scn.close();
 		}
 
 		division(value,2);
