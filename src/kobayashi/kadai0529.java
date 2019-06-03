@@ -43,10 +43,10 @@ public class kadai0529 {
 
 		System.out.println("ファイルに出力しました。");
 
-		LocalDate first = LocalDate.of(Integer.valueOf(y), m,1);//入力した月の初日(変数として使う)
+		LocalDate first = LocalDate.of(Integer.valueOf(y), m,1);//入力した月の始め
 		first.getDayOfWeek();//1日の曜日
 
-		int last = first.plusMonths(1).minusDays(1).getDayOfMonth();//入力した月の最終日//数字に変換
+		int last = first.plusMonths(1).minusDays(1).getDayOfMonth();//入力した月の最終日
 
 
 		File inputFile = new File("C:\\HTMLCSS課題\\kadai0529.html");
@@ -72,53 +72,56 @@ public class kadai0529 {
 
 					switch(first.getDayOfWeek()) {
 					case SUNDAY:
+						out.write("<tr>");
 						out.write("<td><font color=\"red\">1</font></td>");
 					case MONDAY:
+						out.write("<td>&nbsp;</td>");
 						out.write("<td>" + 1 + "</td>");
 					case TUESDAY:
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
 						out.write("<td>" + 1 + "</td>");
 					case WEDNESDAY:
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
 						out.write("<td>" + 1 + "</td>");
 					case THURSDAY:
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
 						out.write("<td>" + 1 + "</td>");
 					case FRIDAY:
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
 						out.write("<td>" + 1 + "</td>");
 					case SATURDAY:
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
+						out.write("<td>&nbsp;</td>");
 						out.write("<td><font color=\"blue\">14</font></td>");
+						out.write("</tr>");
 					}
 
 					out.write("<tr>");
-					for(int i = 1 ; i <= 7; i++) {
-						out.write("<td>" + i + "</td>");
+/*					for(int i = 1 ; i <= 7; i++) {
+						for(;;) {
+							break;
 						}
-					out.write("</tr>");
+					}*/
 
-					out.write("<tr>");
-					for(int i = 8 ; i <= 14; i++) {
-						out.write("<td>" + i + "</td>");
-					}
-					out.write("</tr>");
-
-					out.write("<tr>");
-					for(int i = 15 ; i <= 21; i++) {
-						out.write("<td>" + i + "</td>");
-					}
-					out.write("</tr>");
-
-					out.write("<tr>");
-					for(int i = 22 ; i <= 28; i++) {
-						out.write("<td>" + i + "</td>");
-					}
-					out.write("</tr>");
-
-					out.write("<tr>");
-					for(int i = 29 ; i <= last; i++) {
-						out.write("<td>" + i + "</td>");
-					}
 					out.write("</tr>");
 
 
-				}else if(linecount >= 28 && linecount <= 71){//スキップするところ
+
+				}else if(linecount >= 28 && linecount <= 71){//スキップ
 
 
 				}else {
