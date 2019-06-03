@@ -29,36 +29,37 @@ public class Kadai_3_0517 {
 		}
 	}
 }
-
+//課題３
 class FilePutTogether{
 
 	private File folder; //引数で指定するフォルダ
-	private FilenameFilter filter;
 	private String filterName; //引数で指定するフィルターの条件
 	private File[] list;
-	private File total; //データを書き込むファイル
 	private BufferedReader in;
 	private BufferedWriter out;
+	public static final String TOTAL_NAME = "_TOTAL.csv";
 
 	//フォルダ指定
 	public  FilePutTogether(String args, String str) {
 		folder = new File(args);
-		createFilter(str);
+		filterName = str;
 	}
 
 	//フィルターをつくる
-	public void createFilter(String str) {
-		filterName = str;
-		filter = new FilenameFilter() {
+	public FilenameFilter createFilter() {
+		FilenameFilter filter = new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
-				if(name.contains(filterName)) {
+				File nameFile = new File(folder.getPath() + "\\" + name);
+				//指定したファイル名と一致＆フォルダではない＆_TOTAL.csvファイルではない→trueを返す
+				if(name.contains(filterName) && nameFile.isFile() && !name.contains(TOTAL_NAME)) {
 					return true;
 				}else {
 					return false;
 				}
 			}
 		};
+		return filter;
 	}
 
 	//ファイルリストをつくる
@@ -66,7 +67,7 @@ class FilePutTogether{
 		if(!folder.exists()) {
 			throw new IOException("指定したフォルダが見つかりません。");
 		}else {
-			list = folder.listFiles(filter);
+			list = folder.listFiles(createFilter());
 		}
 	}
 
@@ -74,21 +75,20 @@ class FilePutTogether{
 		return list;
 	}
 
-	//書き込むファイルをつくる//読み込むファイルがないときはつくらない
-	public void createTotalFile() throws IOException {
-
-		if(getList().length == 0) {
+	//書き込むファイルをつくる
+	public File createTotalFile() throws IOException {
+		if(getList().length == 0) { //読み込むファイルがないときはつくらない
 			throw new IOException("フォルダ内に指定したファイルがありません。");
 		}else {
-			total = new File(folder.getPath() + "\\" + filterName +"_TOTAL.csv");
-			total.createNewFile();
+			File total = new File(folder.getPath() + "\\" + filterName + TOTAL_NAME);
+			return total;
 		}
 	}
 
 	//ファイルに書き込む
 	public void writetoTotal() throws IOException {
 
-		out = new BufferedWriter(new FileWriter(total));
+		out = new BufferedWriter(new FileWriter(createTotalFile()));
 		for(File f : getList()) {
 			in = new BufferedReader(new FileReader(f));
 			//リストを読み込んでファイルに書き込む
@@ -118,26 +118,23 @@ class FilePutTogether{
 		}
 	}
 
-
 	//全部
 	public void putTogether() throws IOException {
 		setList();
-		createTotalFile();
 		writetoTotal();
 	}
 }
 
+//課題４
 class FilePutTogether2 extends FilePutTogether {
-
-	private Comparator<File> c;
 
 	public FilePutTogether2(String args, String str) {
 		super(args, str);
 	}
 
 	//Comparatorを実装する
-	public void setComparator(){
-		c = new Comparator<File>() {
+	public Comparator<File> setComparator(){
+		 Comparator<File> c = new Comparator<File>() {
 			@Override
 			public int compare(File f1, File f2) {
 				int i1 = Integer.parseInt(f1.getName().replaceAll("[^0-9]", ""));
@@ -145,19 +142,13 @@ class FilePutTogether2 extends FilePutTogether {
 				return i1 < i2 ? 1 : -1;
 			}
 		};
-	}
-
-	//ファイルリストをソートする
-	public void sortFile() {
-		setComparator();
-		Arrays.sort(getList(), c);
+		return c;
 	}
 
 	//ソートを追加
 	public void putTogether() throws IOException {
 		setList();
-		sortFile();
-		createTotalFile();
+		Arrays.sort(getList(), setComparator());
 		writetoTotal();
 	}
 }
