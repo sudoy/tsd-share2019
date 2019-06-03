@@ -36,7 +36,7 @@ public class Question02 {
 				System.out.println("超える前の総和は" + (sum - i) + "になります。");
 				break ;
 			}
-		}if(sum < 100 && 1 < start) {
+		}if(sum < 100 && 0 < start) {
 			System.out.println(start + "から" + end + "までの総和は" + sum + "になります。");
 		}
 	}
