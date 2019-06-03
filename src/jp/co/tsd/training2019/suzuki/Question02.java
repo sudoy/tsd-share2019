@@ -8,18 +8,16 @@ public class Question02 {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("開始する数値を入力してください。--> ");
-		String s = sc.nextLine();
+		String st = sc.nextLine();
+		System.out.print("終了する数値を入力してください。--> ");
+		String en = sc.nextLine();
 		try {
-
-			System.out.print("終了する数値を入力してください。--> ");
-			int  end = sc.nextInt();
-			int start = Integer.parseInt(s);
+			int start = Integer.parseInt(st);
+			int end = Integer.parseInt(en);
 			calcu(start, end);
 		} catch (Exception e) {
 			System.out.println("整数値を入力してください。");
 		}
-
-
 		sc.close();
 	}
 
