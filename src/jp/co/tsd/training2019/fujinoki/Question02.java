@@ -21,8 +21,8 @@ public class Question02 {
 				
 			} catch (InputMismatchException e) {
 				System.out.println("整数値を入力してください。");
-				scn.close();
-				continue;
+				
+				return;
 			}
 
 			for (int i = kaishi; i <= syuryo; i++) {
@@ -31,9 +31,13 @@ public class Question02 {
 				}
 			}
 			break;
+			
 		}
+		
+		System.out.println(kaishi + "から" + syuryo + "までの総和は" + sowa + "になります。");
 		System.out.println("計算結果が100を超えたため、処理を中断しました。");
 		System.out.println("超える前の総和は" + sowa + "になります。");
+		
 	}
 
 }
