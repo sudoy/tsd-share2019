@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -70,22 +69,21 @@ public class kadai0529 {
 					out.write( "<td align=\"center\">" +first.getMonthValue() + "月</td>");
 				}else if(linecount == 27){
 
-					String date = first
 
-					switch() {
-					case "sun":
+					switch(first.getDayOfWeek()) {
+					case SUNDAY:
 						out.write("<td><font color=\"red\">1</font></td>");
-					case "mon":
+					case MONDAY:
 						out.write("<td>" + 1 + "</td>");
-					case "tue":
+					case TUESDAY:
 						out.write("<td>" + 1 + "</td>");
-					case "wed":
+					case WEDNESDAY:
 						out.write("<td>" + 1 + "</td>");
-					case "thu":
+					case THURSDAY:
 						out.write("<td>" + 1 + "</td>");
-					case "fri":
+					case FRIDAY:
 						out.write("<td>" + 1 + "</td>");
-					case "sat":
+					case SATURDAY:
 						out.write("<td><font color=\"blue\">14</font></td>");
 					}
 
