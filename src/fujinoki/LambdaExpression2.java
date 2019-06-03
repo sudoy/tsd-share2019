@@ -10,7 +10,7 @@ public class LambdaExpression2 {
 		Summary s = new Summaryimpl();
 		System.out.println(s.exec(10, 5));
 
-		//ラムダ式(省略なし)
+		//ムダ式(省略なし)
 		Summary s1 = new Summary() {
 
 			@Override

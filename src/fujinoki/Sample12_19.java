@@ -36,7 +36,9 @@ public class Sample12_19 {
 		List<Integer> intArray1 = new ArrayList<>();
 		for (int num : array) {
 			if (num % 2 == 1) {
-				if (num <= 1000) {
+				if (
+						num <= 1000) {
+					
 					intArray1.add(num);
 				}
 			}
