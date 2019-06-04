@@ -20,7 +20,7 @@ class LocalOuter{
 				System.out.println("outerVal : " + outerVal);
 				System.out.println("x        : " + x);
 				System.out.println("y        : " + y);
-				
+
 				System.out.println("param1   : " + param1);
 				System.out.println("param2   : " + param2);
 			}

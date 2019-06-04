@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.chrono.JapaneseChronology;
 import java.time.chrono.JapaneseDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Kadai02 {
@@ -11,46 +12,69 @@ public class Kadai02 {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 		int date = 0;
-
-		for(; ;) {
+		String num = "null";
+		
+		for (;;) {
 			try {
 				System.out.println("8桁を入力してください。");
-				String num = scn.nextLine();
+				num = scn.nextLine();
 				date = Integer.parseInt(num);
 
-				if(num.length() == 8) {
-					break ;
-				}else {
+				if (num.length() == 8) {
+					break;
+				} else {
 					System.out.println("不正です。");
 				}
-			}catch(NumberFormatException e1) {
+			} catch (NumberFormatException e1) {
 				System.out.println("不正です。");
-				continue ;
+				continue;
 			}
 		}
-		String text = Integer.toString(date);//LocalDateの引数に使うためStringに変換
-		LocalDate year = LocalDate.parse(text, DateTimeFormatter.BASIC_ISO_DATE);
+		
+		LocalDate year = LocalDate.parse(num, DateTimeFormatter.BASIC_ISO_DATE);
 
-		System.out.println
-		(year.getYear()+ "年" + year.getMonthValue()+ "月" + year.getDayOfMonth() + "日" );
+		try {
+//			LocalDate year = LocalDate.parse(num, DateTimeFormatter.BASIC_ISO_DATE);
 
-		JapaneseDate jpDate = JapaneseDate.of(year.getYear(),year.getMonthValue(),year.getDayOfMonth());
+<<<<<<< HEAD
+		JapaneseDate jpDate = JapaneseDate.of(year.getYear(), year.getMonthValue(),year.getDayOfMonth());
 //		和暦にするためJapaneseDateを使用
+=======
+			System.out.println(year.getYear() + "年" + year.getMonthValue() + "月" + year.getDayOfMonth() + "日");
+>>>>>>> branch 'master' of https://github.com/sudoy/tsd-share2019.git
 
-//		System.out.println(jpDate);
+			JapaneseDate jpDate = JapaneseDate.of(year.getYear(), year.getMonthValue(), year.getDayOfMonth());
+			//		和暦にするためJapaneseDateを使用
 
-		DateTimeFormatter f = DateTimeFormatter.ofPattern("Gy年M月d日");
-		f.withChronology(JapaneseChronology.INSTANCE);
-		System.out.println(f.format(jpDate));
+			//		System.out.println(jpDate);
 
-//		よくわかりませんでした。
+			DateTimeFormatter f = DateTimeFormatter.ofPattern("Gy年MM月dd日");
+			f.withChronology(JapaneseChronology.INSTANCE);
+			System.out.println(f.format(jpDate));
 
+			//		よくわかりませんでした。
 
-		if(year.isLeapYear()) {
-			System.out.println("うるう年です。");
-		}else {
-			System.out.println("うるう年ではない。");
+			if (year.isLeapYear()) {
+				System.out.println("うるう年です。");
+			} else {
+				System.out.println("うるう年ではない。");
+			}
+
+		} catch (DateTimeParseException e2) {
+			System.out.println("出力できない日付です。");
 		}
 	}
 
 }
+//String text = "20190430" ;
+//LocalDate reiwa =  LocalDate.parse(text, DateTimeFormatter.BASIC_ISO_DATE);
+
+//if(year.isBefore(reiwa)) {
+//f.withChronology(JapaneseChronology.INSTANCE);
+//System.out.println(f.format(jpDate));
+//}else {
+//f.withChronology(JapaneseChronology.INSTANCE);
+//String change = String.valueOf(f.format(jpDate));
+//change.replace("平成", "令和");
+//System.out.println(change);
+//}
